@@ -1,0 +1,5 @@
+{
+  "name": "NookPOS",
+  "description": "An Animal Crossing themed POS system for iOS with inventory, member management, and e-commerce integrations.",
+  "requestFramePermissions": []
+}

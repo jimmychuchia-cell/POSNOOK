@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>NookPOS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              nook: {
+                cream: '#FDFDF5',
+                green: '#88E7C6',
+                darkGreen: '#4FA38B',
+                brown: '#7C5D40',
+                text: '#5E5244',
+                blue: '#74D2E7',
+                yellow: '#F2C94C',
+                orange: '#F4A261'
+              }
+            },
+            fontFamily: {
+              sans: ['Varela Round', 'Nunito', 'ui-rounded', 'system-ui', 'sans-serif'],
+            },
+            animation: {
+              'float': 'float 3s ease-in-out infinite',
+              'wiggle': 'wiggle 1s ease-in-out infinite',
+              'bounce-sm': 'bounce-sm 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-5px)' },
+              },
+              wiggle: {
+                '0%, 100%': { transform: 'rotate(-3deg)' },
+                '50%': { transform: 'rotate(3deg)' },
+              },
+              'bounce-sm': {
+                '0%, 100%': { transform: 'scale(1)' },
+                '50%': { transform: 'scale(0.95)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <!-- Adding a rounded font for the aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Varela+Round&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Varela Round', 'Nunito', sans-serif;
+        background-color: #FDFDF5;
+        color: #5E5244;
+        -webkit-font-smoothing: antialiased;
+        font-size: 18px; /* Base font size increased */
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #88E7C6;
+        border-radius: 6px;
+        border: 2px solid #FDFDF5;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #4FA38B;
+      }
+      /* Leaf Pattern Background */
+      .bg-leaf-pattern {
+        background-color: #FDFDF5;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2388E7C6' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+
+      /* Print Styles optimized for 80mm Thermal Printers */
+      @media print {
+        body * {
+          visibility: hidden;
+        }
+        #print-area, #print-area * {
+          visibility: visible;
+        }
+        #print-area {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          background: white;
+          color: black;
+          font-family: 'Courier New', Courier, monospace; /* Monospace allows for better alignment on receipts */
+        }
+        @page {
+          size: 80mm auto;
+          margin: 0;
+        }
+        /* Hide scrollbars and UI elements */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
